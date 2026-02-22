@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name:": "SugarSkull",
+    "version": "1.0",
+    "description": "A Chromium extension that enables UNISA students to customise the appearance of their myUNISA portal.",
+    "content_scripts": [
+        {
+            "matches": ["https://my.unisa.ac.za/*"],
+            "js": ["content.js"],
+            "css": ["styles.css"]
+        }
+    ]
+}
