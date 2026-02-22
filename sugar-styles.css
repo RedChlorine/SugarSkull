@@ -1,0 +1,82 @@
+/*
+****************************
+*    SugarSkull Styles     *
+****************************
+*/
+
+/******************************************* NAVBARS *********************************************/
+/* Navbar background */
+.navbar.fixed-top.bg-white {
+    background-color: #FF9800 !important;
+    border-bottom: 1px solid #FF9800 !important;
+}
+
+/* myModules dropdown */
+.navbar-nav.d-none.d-md-flex .dropdown.nav-item {
+    background-color: #ffffff !important;
+    box-shadow: none !important;
+    webkit-box-shadow: none !important;
+}
+.navbar-nav.d-none.d-md-flex .dropdown.nav-item a {
+    background-color: #ffffff !important;
+}
+
+/* myModules navbar buttons */
+.navbar-nav.d-none.d-md-flex .nav-item{
+    box-shadow: none !important;
+    webkit-box-shadow: none !important;
+}
+
+
+/************************************ Inner Card background *************************************/
+/* Main Inner Card*/
+#page.drawers .main-inner{
+    background-color: #673ab7 !important;
+}
+
+/* Intro Card */
+.card{
+    background-color: #673ab7 !important;
+    color: #ffffff !important;
+}
+
+/* Sidebar Inner Card */
+#page.drawers{
+    scrollbar-color: #FF9800 #673ab7 !important;
+}
+
+/* Page background */
+body, #page-wrapper {
+    background-color: #673ab7 !important;
+}
+
+/******************************************* Module Cards ***************************************/
+
+/* Course Sorting */
+.d-flex .btn.btn-outline-secondary {
+    color: #ffffff !important;
+    border-color: #FF9800 !important;
+
+}
+ul.list-group li.list-group-item {
+    background-color: #392165 !important;
+    border-radius: 10px !important;
+    margin-bottom: 5px !important;
+}
+
+/* Year/Semester text */
+.categoryname{
+    color: #c9c9c9 !important;
+}
+
+/* Completion % text */
+/* Targets any text inside the bottom 'flex-wrap' area of the course cards */
+.course-listitem .d-flex.flex-wrap.mt-auto {
+    color: #c9c9c9 !important;
+}
+
+/******************************************* Anchor tags ****************************************/
+/*a {
+    color: #0051ff !important;
+}*/
+
