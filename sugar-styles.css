@@ -11,17 +11,15 @@
     border-bottom: 1px solid #FF9800 !important;
 }
 
-/* myModules dropdown */
-.navbar-nav.d-none.d-md-flex .dropdown.nav-item {
+/* myModules dropdown - high specificity required*/
+#page-wrapper > nav > ul.navbar-nav.d-none.d-md-flex .dropdown-toggle.nav-link {
     background-color: #ffffff !important;
     box-shadow: none !important;
+    color: #646464 !important;
     webkit-box-shadow: none !important;
 }
-.navbar-nav.d-none.d-md-flex .dropdown.nav-item a {
-    background-color: #ffffff !important;
-}
 
-/* myModules navbar buttons */
+/* myAdmin & Unisa Library navbar buttons */
 .navbar-nav.d-none.d-md-flex .nav-item{
     box-shadow: none !important;
     webkit-box-shadow: none !important;
@@ -33,6 +31,7 @@
 #page.drawers .main-inner{
     background-color: #673ab7 !important;
 }
+
 
 /* Intro Card */
 .card{
@@ -75,8 +74,22 @@ ul.list-group li.list-group-item {
     color: #c9c9c9 !important;
 }
 
-/******************************************* Anchor tags ****************************************/
-/*a {
-    color: #0051ff !important;
-}*/
+/*********************************** Calandar Drawer *********************************************/
+/* Calandar - Content Drawer Header */
+.drawerheader {
+    background-color: #FF9800 !important;
+    margin-top: -1px !important;
+}
 
+/* Calandar - Content Drawer Body */
+div.drawercontent.drag-container {
+    background-color: #673ab7 !important;
+    color: #f6f6f6 !important;
+    scrollbar-color: #FF9800 #673ab7 !important;
+}
+
+/******************************************* Globals *********************************************/
+/* Body text */
+body {
+    color: #f6f6f6 !important;
+}
