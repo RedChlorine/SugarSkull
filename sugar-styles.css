@@ -74,11 +74,21 @@ ul.list-group li.list-group-item {
     color: #c9c9c9 !important;
 }
 
+/* Module Card Burger Menu Icon */
+button.btn.btn-link.btn-icon {
+    color:#FF9800 !important;
+}
+
 /*********************************** Calandar Drawer *********************************************/
 /* Calandar - Content Drawer Header */
 .drawerheader {
-    background-color: #FF9800 !important;
-    margin-top: -1px !important;
+    background-color: #673ab7 !important;
+    margin-top: -5px !important;
+}
+
+/* Calandar - Content Drawer Header Close Button */
+div.drawerheader .btn.drawertoggle.icon-no-margin {
+    color: #FF9800 !important;
 }
 
 /* Calandar - Content Drawer Body */
@@ -87,6 +97,12 @@ div.drawercontent.drag-container {
     color: #f6f6f6 !important;
     scrollbar-color: #FF9800 #673ab7 !important;
 }
+
+/* Calandar - Card Title Text */
+div.card-body .card-title {
+    border-bottom: #FF9800 3px solid !important;
+    color: #f6f6f6 !important;
+}   
 
 /******************************************* Globals *********************************************/
 /* Body text */
