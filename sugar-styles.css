@@ -1,14 +1,14 @@
 /*
-****************************
-*    SugarSkull Styles     *
-****************************
+***************************************
+*    SugarSkull Styles - Dashboard    *
+***************************************
 */
 
 /******************************************* NAVBARS *********************************************/
 /* Navbar background */
 .navbar.fixed-top.bg-white {
-    background-color: #FF9800 !important;
-    border-bottom: 1px solid #FF9800 !important;
+    background-color: var(--uni-yellow) !important;
+    border-bottom: 1px solid var(--uni-yellow) !important;
 }
 
 /* myModules dropdown - high specificity required*/
@@ -29,24 +29,24 @@
 /************************************ Inner Card background *************************************/
 /* Main Inner Card*/
 #page.drawers .main-inner{
-    background-color: #673ab7 !important;
+    background-color: var(--dark-violet) !important;
 }
 
 
 /* Intro Card */
 .card{
-    background-color: #673ab7 !important;
+    background-color: var(--dark-violet) !important;
     color: #ffffff !important;
 }
 
 /* Sidebar Inner Card */
 #page.drawers{
-    scrollbar-color: #FF9800 #673ab7 !important;
+    scrollbar-color: var(--uni-yellow) var(--dark-violet) !important;
 }
 
 /* Page background */
 body, #page-wrapper {
-    background-color: #673ab7 !important;
+    background-color: var(--dark-violet) !important;
 }
 
 /******************************************* Module Cards ***************************************/
@@ -54,11 +54,11 @@ body, #page-wrapper {
 /* Course Sorting */
 .d-flex .btn.btn-outline-secondary {
     color: #ffffff !important;
-    border-color: #FF9800 !important;
+    border-color: var(--uni-yellow) !important;
 
 }
 ul.list-group li.list-group-item {
-    background-color: #392165 !important;
+    background-color:var(--violet) !important;
     border-radius: 10px !important;
     margin-bottom: 5px !important;
 }
@@ -76,31 +76,31 @@ ul.list-group li.list-group-item {
 
 /* Module Card Burger Menu Icon */
 button.btn.btn-link.btn-icon {
-    color:#FF9800 !important;
+    color:var(--uni-yellow) !important;
 }
 
 /*********************************** Calandar Drawer *********************************************/
 /* Calandar - Content Drawer Header */
 .drawerheader {
-    background-color: #673ab7 !important;
+    background-color:var(--dark-violet) !important;
     margin-top: -5px !important;
 }
 
 /* Calandar - Content Drawer Header Close Button */
 div.drawerheader .btn.drawertoggle.icon-no-margin {
-    color: #FF9800 !important;
+    color: var(--uni-yellow) !important;
 }
 
 /* Calandar - Content Drawer Body */
 div.drawercontent.drag-container {
-    background-color: #673ab7 !important;
+    background-color:var(--dark-violet) !important;
     color: #f6f6f6 !important;
-    scrollbar-color: #FF9800 #673ab7 !important;
+    scrollbar-color: var(--uni-yellow) var(--dark-violet) !important;
 }
 
 /* Calandar - Card Title Text */
 div.card-body .card-title {
-    border-bottom: #FF9800 3px solid !important;
+    border-bottom: var(--uni-yellow) 3px solid !important;
     color: #f6f6f6 !important;
 }   
 
@@ -108,4 +108,10 @@ div.card-body .card-title {
 /* Body text */
 body {
     color: #f6f6f6 !important;
+}
+
+:root{
+    --dark-violet: #392165 !important;
+    --violet: #673ab7 !important;
+    --uni-yellow: #FF9800 !important;
 }
