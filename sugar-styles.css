@@ -103,6 +103,92 @@ div.card-body .card-title {
     border-bottom: var(--uni-yellow) 3px solid !important;
     color: #f6f6f6 !important;
 }   
+/************************************ Module Landing Page *****************************************/
+/* Module Landing Page - general background color */
+/*.general-section.d-flex.flex-column{
+    background-color: var(--dark-violet) !important;
+} --- DEPRECATED ---*/
+
+/* Module Landing Page - remove bottom margin IMPORTANT - HIGH SPECIFICITY*/
+div.course-content div#card-container ul.sections.row.generalsection-container{
+    margin-bottom: 0px; 
+}
+
+/* Module Landing Page - Card background color */
+.activity.d-flex.flex-column {
+    background-color: var(--violet) !important;
+}
+
+/* Module Landing Page - Card Title Text */
+div.media-body .text-uppercase{
+    color: #c9c9c9 !important;
+}
+
+/* Module Landing Page - Card Title Link */
+body#page-course-view-remuiformat .activity .activitytitle .media-body .activityname a {
+    color: var(--uni-yellow) !important;
+}
+
+/* Module Landing Page - Course Summary Text */
+body#page-course-view-remuiformat .course-content .sections #section-0 .general-section .section-details .generaldetails .generalsectioninfo .coursesummary{
+    color: #f6f6f6 !important;
+}
+
+/* Module Landing Page - Course Summary Text after links */
+body#page-course-view-remuiformat .course-content .sections #section-0 .general-section .activities-wrapper .general-section-activities .activity .contentafterlink{
+    color: #f6f6f6 !important;
+}
+
+/* Module Landing Page - Section Title */
+div.generaldetails .section-title {
+    color: #f6f6ff !important;
+}
+
+/* Module Landing Page - Course Information Heading */
+div.coursedetails .details.d-flex.flex-column h3, div.activities-wrapper.d-flex.flex-column h4.activitieshead {
+    color: var(--uni-yellow) !important;
+}
+
+/* Module Landing Page - Course Information Subheadings */
+div.coursedetails .details.d-flex.flex-column li.item {
+    color: #f6f6f6 !important;
+}
+
+/* Module Landing Page - E-Tutor tray */
+div.course-content div#card-container.remui-format-card.all-section-format.theme-moove{
+    background-color: var(--dark-violet) !important;
+}
+
+/* Module Landing Page - E-Tutor tray - Card background */
+ul.sections.row li .single-card.d-flex.flex-column{
+    background-color: var(--violet) !important;
+}
+
+/* Module Landing Page - E-Tutor tray - Card Title and Summary Text */
+ul.sections.row li .single-card.d-flex.flex-column .content h2.sectionname, ul.sections.row li .single-card.d-flex.flex-column .content div.section-activities-summary span.item{
+    color: #f6f6f6 !important;
+}
+
+.readbtn{
+    color: var(--uni-yellow) !important;
+}
+
+/***************************************** Announcements *****************************************/
+/* Forum background color */
+body.reset-style #page-content #region-main-box #region-main{
+    background-color: var(--dark-violet) !important;
+}
+
+/* Forum Header background color */
+#region-main > div.activity-header{
+    background-color: var(--uni-yellow) !important;
+}
+
+section#region-main{
+    background-color: var(--violet) !important;
+    border-radius: 30px !important;
+}
+
 
 /******************************************* Globals *********************************************/
 /* Body text */
