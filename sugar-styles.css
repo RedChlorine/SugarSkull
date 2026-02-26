@@ -16,13 +16,13 @@
     background-color: #ffffff !important;
     box-shadow: none !important;
     color: #646464 !important;
-    webkit-box-shadow: none !important;
+    /*webkit-box-shadow: none !important;*/
 }
 
 /* myAdmin & Unisa Library navbar buttons */
 .navbar-nav.d-none.d-md-flex .nav-item{
     box-shadow: none !important;
-    webkit-box-shadow: none !important;
+    /*webkit-box-shadow: none !important;*/
 }
 
 
