@@ -196,7 +196,7 @@ body {
     color: #f6f6f6 !important;
 }
 
-:root{
+body.sugar-skull-active{
     --dark-violet: #392165 !important;
     --pastel-violet: #b396e5 !important;
     --uni-yellow: #FF9800 !important;
