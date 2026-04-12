@@ -1,13 +1,23 @@
 {
     "manifest_version": 3,
     "name": "SugarSkull",
-    "version": "0.7",
-    "permissions": ["storage"],
+    "version": "0.8",
+    "permissions": [
+        "scripting",
+        "tabs",
+        "storage"
+    ],
     "description": "A Chromium extension that enables UNISA students to customise the appearance of their myUNISA portal.\nNote: - BETA VERSION - This is a work in progress",
     "icons": {
         "16": "SugarSkull_Icons/SugarSkull_Icon_16.png",
         "48": "SugarSkull_Icons/SugarSkull_Icon_48.png",
         "128": "SugarSkull_Icons/SugarSkull_Icon_128.png"
+    },
+    "host_permissions": [
+        "*://mymodules.dtls.unisa.ac.za/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
     },
     "action": {
         "default_icon": {
@@ -17,17 +27,5 @@
         },
         "default_title": "SugarSkull",
         "default_popup": "popup.html"
-    },
-    "web_accessible_resources":[
-        {
-            "resources": ["sugar-styles.css"],
-            "matches": ["*://mymodules.dtls.unisa.ac.za/*"]
-        }
-    ],
-    "content_scripts": [
-        {
-            "matches": ["*://mymodules.dtls.unisa.ac.za/*"],
-            "js": ["content.js"]
-        }
-    ]
+    }
 }
