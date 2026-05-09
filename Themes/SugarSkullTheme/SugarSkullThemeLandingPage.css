@@ -2,10 +2,6 @@
     --bg-color: #392360;
     --bg-glass-color: rgba(255, 255, 255, 0.05);
     --bg-glass-color-intense: rgba(255, 255, 255, 0.1);
-    --glass-background-size: cover !important;
-    --glass-background-position: center !important;
-    --glass-background-attachment: fixed !important;
-    --glass-background-repeat: no-repeat !important;
 }
 
 /* * { 
@@ -15,14 +11,12 @@
 /* Outline every single box */
 /*}*/
 
-
-
 body {
     /* General landing page BG*/
     font-family: Arial;
     font-size: 14px;
     line-height: 1.42857143;
-    color: #333333;
+    color: #ffffff;
     background-color: var(--bg-color) !important;
     overflow-x: hidden;
     /* Using a placeholder high-contrast image for testing */
@@ -65,4 +59,37 @@ body {
 /* ANCHOR TAGS */
 a {
     color: rgb(255, 170, 0) !important;
+}
+
+/* UNISA LANDING PAGE FOOTER */
+.myUnisaFooter {
+    padding-top: 20px;
+    background-color: var(--bg-glass-color) !important;
+    border-radius: 10px 10px 0 0 !important;
+    background-color: var(--bg-glass-color) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* EVENTS PANEL */
+.ci-gray-lighter-bg {
+    background-color: var(--bg-glass-color) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 10px !important;
+}
+
+/* EMAIL myLife & UNISA RADIO BUTTONS */
+.btn-ci-yellow-variant {
+    padding-bottom: 2px !important;
+}
+
+/* NEWS PANEL */
+.news-carousel-read-more {
+    padding-bottom: 29px !important;
+}
+
+h1 {
+    color: rgb(255, 136, 0) !important;
+
 }
