@@ -16,11 +16,11 @@ body {
     font-family: Arial;
     font-size: 14px;
     line-height: 1.42857143;
-    color: #ffffff;
+    color: #ffffff !important;
     background-color: var(--bg-color) !important;
     overflow-x: hidden;
     /* Using a placeholder high-contrast image for testing */
-    background-image: url('chrome-extension://__MSG_@@extension_id__/Themes/SugarSkullTheme/imgs/norbert-kowalczyk-UAsQXiuTzSg-unsplash.jpg') !important;
+    background-image: url('chrome-extension://__MSG_@@extension_id__/Themes/SugarSkullTheme/imgs/pawel-czerwinski-9yOpe1TBxd4-unsplash.jpg') !important;
     background-size: cover !important;
     background-position: center !important;
     background-attachment: fixed !important;

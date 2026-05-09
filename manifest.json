@@ -31,7 +31,7 @@
     "web_accessible_resources": [
         {
             "resources": [
-                "Themes/SugarSkullTheme/imgs/norbert-kowalczyk-UAsQXiuTzSg-unsplash.jpg"
+                "Themes/SugarSkullTheme/imgs/pawel-czerwinski-9yOpe1TBxd4-unsplash.jpg"
             ],
             "matches": [
                 "*://*.unisa.ac.za/*"
