@@ -27,5 +27,15 @@
         },
         "default_title": "SugarSkull",
         "default_popup": "popup.html"
-    }
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "Themes/SugarSkullTheme/imgs/norbert-kowalczyk-UAsQXiuTzSg-unsplash.jpg"
+            ],
+            "matches": [
+                "*://*.unisa.ac.za/*"
+            ]
+        }
+    ]
 }

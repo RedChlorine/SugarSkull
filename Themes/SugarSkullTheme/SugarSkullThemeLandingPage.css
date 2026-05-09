@@ -1,12 +1,68 @@
 :root {
     --bg-color: #392360;
+    --bg-glass-color: rgba(255, 255, 255, 0.05);
+    --bg-glass-color-intense: rgba(255, 255, 255, 0.1);
+    --glass-background-size: cover !important;
+    --glass-background-position: center !important;
+    --glass-background-attachment: fixed !important;
+    --glass-background-repeat: no-repeat !important;
 }
 
+/* * { 
+    /* background-color: rgba(255, 0, 0, 0.1) !important;*/
+/* Tint everything slightly red */
+/* outline: 1px solid lime !important;*/
+/* Outline every single box */
+/*}*/
+
+
+
 body {
+    /* General landing page BG*/
     font-family: Arial;
     font-size: 14px;
     line-height: 1.42857143;
     color: #333333;
     background-color: var(--bg-color) !important;
     overflow-x: hidden;
+    /* Using a placeholder high-contrast image for testing */
+    background-image: url('chrome-extension://__MSG_@@extension_id__/Themes/SugarSkullTheme/imgs/norbert-kowalczyk-UAsQXiuTzSg-unsplash.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+}
+
+.container>.navbar-header,
+.container-fluid>.navbar-header,
+.container>.navbar-collapse,
+.container-fluid>.navbar-collapse {
+    margin-right: 0;
+    margin-left: 0;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+}
+
+/* NOTICES PANEL & IMPORTANT LINKS PANEL*/
+.panel {
+    margin-bottom: 20px;
+    background-color: var(--bg-glass-color) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.panel-heading {
+    color: rgb(255, 162, 0) !important;
+    background-image: none !important;
+    background-color: var(--bg-glass-color-intense) !important;
+    border-bottom: none !important;
+}
+
+/* ANCHOR TAGS */
+a {
+    color: rgb(255, 170, 0) !important;
 }
