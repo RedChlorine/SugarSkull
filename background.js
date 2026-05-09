@@ -1,3 +1,5 @@
+// @ts-check
+'use strict';
 //==========================================================
 // The Engine: Service Worker Logic (background.js)
 //==========================================================
@@ -9,33 +11,38 @@
 // Injection Targets
 const CSS_MAP = {
     dashboard: {
-        pattern: '/my',
-        file: 'css/dashboard.css'
+        pattern: '/myunisa',
+        file: 'SugarSkullThemeLandingPage.css'
     }
 };
 
 // Helper function to inject or remove CSS
-async function toggleCSS(tabID, URL, enableTheme) {
+/**
+ * @param {number} tabID
+ * @param {string} url
+ * @param {boolean} enableTheme
+ */
+async function toggleCSS(tabID, url, enableTheme) {
     // always start with the gloabl theme
     // TODO
-
+    let filesToInject = [CSS_MAP.dashboard.file];
     // Determine if a specific page CSS is needed
-    if (URL.includes(CSS_MAP.dashboard.pattern)) {
+    if (url.includes(CSS_MAP.dashboard.pattern)) {
         filesToInject = [CSS_MAP.dashboard.file];
     }
 
     const injectionOptions = {
         target: { tabId: tabID },
-        files: { filesToInject }
+        files: filesToInject
     };
 
     try {
         if (enableTheme) {
             await chrome.scripting.insertCSS(injectionOptions);
-            console.log(`[SugarSkull]: Injected CSS into tab ${tabID} for URL: ${URL}`);
+            console.log(`[SugarSkull]: Injected CSS into tab ${tabID} for URL: ${url}`);
         } else {
-            await chrome.scripting.remmoveCSS(injectionOptions);
-            console.log(`[SugarSkull]: Removed CSS from tab ${tabID} for URL: ${URL}`);
+            await chrome.scripting.removeCSS(injectionOptions);
+            console.log(`[SugarSkull]: Removed CSS from tab ${tabID} for URL: ${url}`);
         }
     } catch (error) {
         console.error(`[SugarSkull]: Error toggling CSS for tab ${tabID}:`, error);
@@ -45,11 +52,11 @@ async function toggleCSS(tabID, URL, enableTheme) {
 // Listen for Page Navigation/ Refreshes
 chrome.tabs.onUpdated.addListener(async (tabID, changeInfo, tab) => {
     // Ensure the page is fully loaded and matches the target doamain
-    if (changeInfo.status === 'complete' && tab.URL?.includes('unisa.ac.za')) {
+    if (changeInfo.status === 'complete' && tab.url?.includes('unisa.ac.za')) {
         const { isThemeEnabled } = await chrome.storage.local.get('isThemeEnabled');
 
         if (isThemeEnabled) {
-            toggleCSS(tabID, tab.URL, true);
+            toggleCSS(tabID, tab.url, true);
         }
     }
 });
@@ -60,8 +67,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         // Query the active tab to apply or remove the CSS immediately
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
             const activeTab = tabs[0];
-            if (activeTab && activeTab.URL.includes('unisa.ac.za')) {
-                toggleCSS(activeTab.id, activeTab.URL, message.isThemeEnabled);
+            if (activeTab && typeof activeTab.id === 'number' && activeTab.url?.includes('unisa.ac.za')) {
+                toggleCSS(activeTab.id, activeTab.url, message.isThemeEnabled);
             }
         });
 

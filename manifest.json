@@ -14,7 +14,7 @@
         "128": "SugarSkull_Icons/SugarSkull_Icon_128.png"
     },
     "host_permissions": [
-        "*://mymodules.dtls.unisa.ac.za/*"
+        "*://*.unisa.ac.za/*"
     ],
     "background": {
         "service_worker": "background.js"

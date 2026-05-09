@@ -1,3 +1,4 @@
+'use strict';
 // Extension popup
 document.addEventListener('DOMContentLoaded', async () => {
     const toggleSwitch = document.getElementById('themeToggle');
@@ -13,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Tell the background script to toggle the theme
         chrome.runtime.sendMessage({
             action: 'TOGGLE_THEME',
-            isThemeEnabled: 'newState'
+            isThemeEnabled: newState
         });
     });
 });
