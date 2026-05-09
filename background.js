@@ -12,7 +12,7 @@
 const CSS_MAP = {
     dashboard: {
         pattern: '/myunisa',
-        file: 'SugarSkullThemeLandingPage.css'
+        file: 'Themes/SugarSkullTheme/SugarSkullThemeLandingPage.css'
     }
 };
 
