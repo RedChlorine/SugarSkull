@@ -9,10 +9,22 @@
 //==========================================================
 
 // Injection Targets
+/**
+ * @typedef  {Object} ThemeTarget
+ * @property {string} pattern
+ * @property {string} file
+ */
+
+/** * @type {Object<string, ThemeTarget>} 
+ */
 const CSS_MAP = {
-    dashboard: {
+    landing: {
         pattern: '/myunisa',
         file: 'Themes/SugarSkullTheme/SugarSkullThemeLandingPage.css'
+    },
+    login: {
+        pattern: '/login',
+        file: 'Themes/SugarSkullTheme/SugarSkullThemeLoginPage.css'
     }
 };
 
@@ -23,12 +35,22 @@ const CSS_MAP = {
  * @param {boolean} enableTheme
  */
 async function toggleCSS(tabID, url, enableTheme) {
-    // always start with the gloabl theme
-    // TODO
-    let filesToInject = [CSS_MAP.dashboard.file];
-    // Determine if a specific page CSS is needed
-    if (url.includes(CSS_MAP.dashboard.pattern)) {
-        filesToInject = [CSS_MAP.dashboard.file];
+    let filesToInject = [];
+
+    // Dynamically iterate through the CSS_MAP to determine which files to inject based on the URL
+    for (const key in CSS_MAP) {
+        const target = CSS_MAP[key];
+
+        if (url.includes(target.pattern)) {
+            filesToInject.push(target.file);
+            break; // Assuming one theme per page, break after finding the first match - performance optimization
+        }
+    }
+
+    // If the loop finished and the arrar is empty -> exit early + log
+    if (filesToInject.length === 0) {
+        console.log(`[SugarSkull]: No matching CSS target for this URL: ${url}`);
+        return;
     }
 
     const injectionOptions = {
@@ -36,19 +58,19 @@ async function toggleCSS(tabID, url, enableTheme) {
         files: filesToInject
     };
 
+    // Inject or Remove CSS based on the enableTheme flag + log
     try {
         if (enableTheme) {
             await chrome.scripting.insertCSS(injectionOptions);
-            console.log(`[SugarSkull]: Injected CSS into tab ${tabID} for URL: ${url}`);
+            console.log(`[SugarSkull]: Injected CSS for ${url}`);
         } else {
             await chrome.scripting.removeCSS(injectionOptions);
-            console.log(`[SugarSkull]: Removed CSS from tab ${tabID} for URL: ${url}`);
+            console.log(`[SugarSkull]: Removed CSS for ${url}`);
         }
     } catch (error) {
-        console.error(`[SugarSkull]: Error toggling CSS for tab ${tabID}:`, error);
+        console.error(`[SugarSkull]: Error while toggling CSS for ${url} - ${error}`);
     }
 }
-
 // Listen for Page Navigation/ Refreshes
 chrome.tabs.onUpdated.addListener(async (tabID, changeInfo, tab) => {
     // Ensure the page is fully loaded and matches the target doamain

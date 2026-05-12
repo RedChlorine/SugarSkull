@@ -1,0 +1,40 @@
+:root {
+    --bg-color: #392360;
+    --bg-glass-color: rgba(255, 255, 255, 0.05);
+    --bg-glass-color-intense: rgba(255, 255, 255, 0.1);
+}
+
+/* Background image for the login page */
+.pagelayout-login #page {
+    background-image: url('chrome-extension://__MSG_@@extension_id__/Themes/SugarSkullTheme/imgs/pawel-czerwinski-9yOpe1TBxd4-unsplash.jpg') !important;
+}
+
+/* Center the login form and apply a glassmorphism effect */
+#page-login-index .login-container .loginform {
+    margin: 0 auto;
+    background-color: var(--bg-glass-color) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 2rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    border-radius: .5rem;
+}
+
+/* "Sign in with" Heading */
+p {
+    color: rgb(255, 255, 255) !important;
+}
+
+/* Login Button Text */
+a {
+    color: rgb(255, 255, 255) !important;
+}
+
+a:hover {
+    color: rgb(255, 170, 0) !important;
+}
+
+/* Login Button */
+.btn {
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
