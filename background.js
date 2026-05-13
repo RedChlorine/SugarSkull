@@ -25,6 +25,10 @@ const CSS_MAP = {
     login: {
         pattern: '/login',
         file: 'Themes/SugarSkullTheme/SugarSkullThemeLoginPage.css'
+    },
+    mymodulesdash: {
+        pattern: '/my',
+        file: 'Themes/SugarSkullTheme/SugarSkullThemeMyModulesDash.css'
     }
 };
 

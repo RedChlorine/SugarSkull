@@ -1,0 +1,144 @@
+:root {
+    --bg-color: #392360;
+    --bg-glass-color: rgba(255, 255, 255, 0.05);
+    --bg-glass-color-hover: rgba(255, 255, 255, 0.3);
+    --bg-glass-color-intense: rgba(255, 255, 255, 0.1);
+    --general-orange: rgb(255, 166, 33);
+    --link-blue: #31cbf5;
+}
+
+/* Dahsboard background Image */
+#page.drawers {
+    background-image: url('chrome-extension://__MSG_@@extension_id__/Themes/SugarSkullTheme/imgs/pawel-czerwinski-9yOpe1TBxd4-unsplash.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+}
+
+/* Main Container for the dashboard */
+.main-inner {
+    background-color: transparent !important;
+}
+
+/* Heading Card */
+.card {
+    background-color: var(--bg-glass-color) !important;
+    backdrop-filter: blur(15px) !important;
+    /*border: 1px solid rgba(255, 255, 255, 0.1) !important;*/
+}
+
+/* Module List */
+.list-group-item:first-child,
+.list-group-item+.list-group-item,
+.list-group-item:last-child {
+    background-color: var(--bg-glass-color-intense) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+    margin-bottom: 1% !important;
+}
+
+.list-group-item:first-child:hover,
+.list-group-item+.list-group-item:hover,
+.list-group-item:last-child:hover {
+    background-color: var(--bg-glass-color-hover) !important;
+}
+
+/* Dashboard Text */
+h1,
+h5,
+span.categoryname,
+p,
+strong,
+li {
+    color: var(--general-orange) !important;
+}
+
+/* link color */
+a.aalink.coursename,
+span.mr-1 {
+    transition: all 0.25s ease-out !important;
+    color: var(--link-blue) !important;
+}
+
+/* Dropdown Menu - View, Sort-by, List */
+.btn-outline-secondary {
+    color: #ffffff !important;
+}
+
+/* scrollbar - main */
+#page.drawers {
+    margin-top: 60px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--general-orange) transparent !important;
+}
+
+/* footer */
+#page-footer {
+    background-color: var(--bg-glass-color) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Navbar */
+.navbar.fixed-top,
+.bg-white {
+    background-color: var(--bg-glass-color) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.align-items-center {
+    background: transparent !important;
+}
+
+a.nav-link,
+#user-menu-toggle,
+.mr-2 {
+    color: var(--link-blue) !important;
+}
+
+/* Navbar Dropdown + children */
+li.dropdown.nav-item,
+li.nav-item {
+    background-color: var(--bg-glass-color) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: none !important;
+    margin-left: 1% !important;
+    border-radius: 20px !important;
+}
+
+.navbar.fixed-top .navbar-nav.d-none.d-md-flex .nav-item:nth-child(4) {
+    /* bitch ass selector */
+    background-color: var(--bg-glass-color) !important;
+}
+
+a {
+    background-color: transparent !important;
+}
+
+/* Calendar Tray */
+.drawercontent,
+.drawerheader {
+    background-image: url('chrome-extension://__MSG_@@extension_id__/Themes/SugarSkullTheme/imgs/pawel-czerwinski-9yOpe1TBxd4-unsplash.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+}
+
+/* icons */
+.icon {
+    color: var(--link-blue);
+}
+
+.card-text {
+    color: var(--general-orange);
+}
+
+.aalink.day {
+    color: var(--link-blue);
+}
