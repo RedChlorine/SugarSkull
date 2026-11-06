@@ -1,0 +1,124 @@
+/* 1. Ground-Up Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+}
+
+:root {
+    --calavera-bg: #0d0a14;
+    --calavera-surface: #171224;
+    --calavera-border: #2e2347;
+    --calavera-marigold: #ffb703;
+    --calavera-magenta: #ff006e;
+    --calavera-teal: #00f5d4;
+    --calavera-bone: #f4f1ea;
+    --calavera-muted: #9d94b0;
+}
+
+/* 2. Full-Viewport Centered Canvas */
+html,
+body {
+    min-height: 100vh;
+    background-color: var(--calavera-bg);
+    color: var(--calavera-bone);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hide broken/unwanted default UNISA logos and sidebars once unstyled */
+img:not(.ss-calavera-logo),
+header,
+footer,
+nav {
+    display: none;
+}
+
+/* 3. Calavera Login Card */
+form#fm1,
+.login-form,
+form[action*="login"] {
+    width: min(100% - 2rem, 400px);
+    background-color: var(--calavera-surface);
+    border: 1px solid var(--calavera-border);
+    border-top: 3px solid var(--calavera-magenta);
+    border-radius: 14px;
+    padding: 2rem;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.75), 0 0 18px rgba(255, 0, 110, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ss-calavera-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.ss-calavera-logo {
+    width: 72px;
+    height: 72px;
+    filter: drop-shadow(0 0 10px rgba(255, 183, 3, 0.4));
+}
+
+.ss-calavera-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, var(--calavera-marigold), var(--calavera-magenta));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 4. Inputs & Submit Button */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    background-color: var(--calavera-bg);
+    border: 1px solid var(--calavera-border);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: var(--calavera-bone);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: var(--calavera-teal);
+    box-shadow: 0 0 0 3px rgba(0, 245, 212, 0.2);
+    outline: none;
+}
+
+input[type="submit"],
+button[type="submit"] {
+    width: 100%;
+    background: linear-gradient(135deg, var(--calavera-magenta), #b5179e);
+    border: 1px solid var(--calavera-marigold);
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(255, 183, 3, 0.35);
+}
