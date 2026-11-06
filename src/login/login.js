@@ -42,14 +42,12 @@
             .querySelectorAll('style, link[rel*="stylesheet"], [style]')
             .forEach(stripNodeStyle);
 
-        // 1. Check for the myModules Microsoft SSO button first
         const ssoAnchor =
             document.querySelector(".login-identityproviders a, a.login-identityprovider-btn, a[href*='oauth2'], a[href*='oidc']") ||
             Array.from(document.querySelectorAll("a")).find(
                 (a) => a.textContent.includes("myLife") || a.textContent.includes("Staff/Marker")
             );
 
-        // 2. Fallback to standard login form for CAS / myAdmin pages
         const loginForm =
             document.querySelector("form#login") ||
             document.querySelector("form#fm1") ||
@@ -58,17 +56,13 @@
 
         if ((!ssoAnchor && !loginForm) || document.querySelector(".ss-outer-card")) return;
 
-        // Stop stripping style attributes so our CSS variables on <html> persist
         observer.disconnect();
 
         const forgotStudentUrl = "https://myadmin.unisa.ac.za/unisa-studentnumber/default.do";
         const forgotPassUrl = "https://my.unisa.ac.za/portal/pda/__forgot-password";
 
-        // Set background & skull watermark variables
         const bgUrl = chrome.runtime.getURL("assets/bg-pattern.jpg");
-        const skullUrl = chrome.runtime.getURL("assets/calavera.png");
         document.documentElement.style.setProperty("--ss-bg-image", `url("${bgUrl}")`);
-        document.documentElement.style.setProperty("--ss-skull-image", `url("${skullUrl}")`);
 
         const outerCard = document.createElement("main");
         outerCard.className = "ss-outer-card";
@@ -82,15 +76,10 @@
           <span class="ss-divider-line"></span>
         </div>
       </header>
-      <section class="ss-inner-frame"></section>
     `;
 
-        const innerFrame = outerCard.querySelector(".ss-inner-frame");
-
         if (ssoAnchor) {
-            // --- MYMODULES SSO MODE ---
-            innerFrame.classList.add("ss-sso-mode");
-
+            // --- MYMODULES SSO MODE (Single Card) ---
             const ssoContainer = document.createElement("div");
             ssoContainer.className = "ss-form ss-sso-container";
             ssoContainer.innerHTML = `
@@ -104,14 +93,16 @@
           </svg>
           <span>Student myLife or Staff Email</span>
         </a>
-        <div class="ss-footer-links">
-          <span class="ss-flourish">❀❯❯</span>
-          <a href="${forgotStudentUrl}" target="_blank" rel="noopener">Forgot Student Number?</a>
-          <a href="${forgotPassUrl}" target="_blank" rel="noopener">Forgot Password?</a>
-          <span class="ss-flourish">❮❮❀</span>
+        <div class="ss-action-buttons">
+          <a href="${forgotStudentUrl}" target="_blank" rel="noopener" class="ss-action-btn">
+            <span>Forgot Student Number?</span>
+          </a>
+          <a href="${forgotPassUrl}" class="ss-action-btn">
+            <span>Forgot Password?</span>
+          </a>
         </div>
       `;
-            innerFrame.appendChild(ssoContainer);
+            outerCard.appendChild(ssoContainer);
         } else if (loginForm) {
             // --- CAS / MYADMIN USERNAME & PASSWORD MODE ---
             const userField = loginForm.querySelector('input[name="username"], input[type="text"]');
@@ -153,16 +144,18 @@
 
             if (submitBtn) loginForm.appendChild(submitBtn);
 
-            const footerLinks = document.createElement("div");
-            footerLinks.className = "ss-footer-links";
-            footerLinks.innerHTML = `
-        <span class="ss-flourish">❀❯❯</span>
-        <a href="${forgotStudentUrl}" target="_blank" rel="noopener">Forgot Student Number?</a>
-        <a href="${forgotPassUrl}" target="_blank" rel="noopener">Forgot Password?</a>
-        <span class="ss-flourish">❮❮❀</span>
+            const actionButtons = document.createElement("div");
+            actionButtons.className = "ss-action-buttons";
+            actionButtons.innerHTML = `
+        <a href="${forgotStudentUrl}" target="_blank" rel="noopener" class="ss-action-btn">
+          <span>Forgot Student Number?</span>
+        </a>
+        <a href="${forgotPassUrl}" class="ss-action-btn">
+          <span>Forgot Password?</span>
+        </a>
       `;
-            loginForm.appendChild(footerLinks);
-            innerFrame.appendChild(loginForm);
+            loginForm.appendChild(actionButtons);
+            outerCard.appendChild(loginForm);
         }
 
         document.body.innerHTML = "";
