@@ -1,0 +1,22 @@
+# Chromium Extension Packaging & Keys
+*.pem
+*.crx
+*.zip
+dist/
+build/
+
+# Node / Build Tooling (if added later)
+node_modules/
+npm-debug.log*
+.env
+
+# VS Code & Editor Directories
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# Windows & OS Metadata
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+.DS_Store

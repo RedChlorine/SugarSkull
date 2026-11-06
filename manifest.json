@@ -1,41 +1,25 @@
 {
     "manifest_version": 3,
     "name": "SugarSkull",
-    "version": "0.8",
-    "permissions": [
-        "scripting",
-        "tabs",
-        "storage"
-    ],
-    "description": "A Chromium extension that enables UNISA students to customise the appearance of their myUNISA portal.\nNote: - BETA VERSION - This is a work in progress",
-    "icons": {
-        "16": "SugarSkull_Icons/SugarSkull_Icon_16.png",
-        "48": "SugarSkull_Icons/SugarSkull_Icon_48.png",
-        "128": "SugarSkull_Icons/SugarSkull_Icon_128.png"
-    },
-    "host_permissions": [
-        "*://*.unisa.ac.za/*"
-    ],
-    "background": {
-        "service_worker": "background.js"
-    },
-    "action": {
-        "default_icon": {
-            "16": "SugarSkull_Icons/SugarSkull_Icon_16.png",
-            "48": "SugarSkull_Icons/SugarSkull_Icon_48.png",
-            "128": "SugarSkull_Icons/SugarSkull_Icon_128.png"
-        },
-        "default_title": "SugarSkull",
-        "default_popup": "popup.html"
-    },
-    "web_accessible_resources": [
+    "version": "2.0.0",
+    "description": "Custom dark mode and UI overhaul for the myUNISA portal.",
+    "content_scripts": [
         {
-            "resources": [
-                "Themes/SugarSkullTheme/imgs/pawel-czerwinski-9yOpe1TBxd4-unsplash.jpg"
-            ],
             "matches": [
-                "*://*.unisa.ac.za/*"
-            ]
+                "https://www.unisa.ac.za/sites/myunisa/default/*",
+                "https://myadmin.unisa.ac.za/login-mymodules/*",
+                "https://myadmin.unisa.ac.za/session-widget/*",
+                "https://cas.unisa.ac.za/cas/login*",
+                "https://mymodules.dtls.unisa.ac.za/login/*"
+            ],
+            "css": [
+                "src/login/login.css"
+            ],
+            "js": [
+                "src/login/login.js"
+            ],
+            "run_at": "document_start",
+            "all_frames": true
         }
     ]
 }
