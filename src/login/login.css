@@ -70,9 +70,9 @@ form[action*="login"] {
 }
 
 .ss-calavera-logo {
-    width: 72px;
-    height: 72px;
-    filter: drop-shadow(0 0 10px rgba(255, 183, 3, 0.4));
+    width: 256px;
+    height: 256px;
+    /*filter: drop-shadow(0 0 10px rgba(255, 183, 3, 0.4));*/
 }
 
 .ss-calavera-title {

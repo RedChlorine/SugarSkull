@@ -56,7 +56,7 @@
 
         const header = document.createElement("div");
         header.className = "ss-calavera-header";
-        const skullUrl = chrome.runtime.getURL("assets/calavera.svg");
+        const skullUrl = chrome.runtime.getURL("assets/SSCalavera.png");
 
         header.innerHTML = `
       <img class="ss-calavera-logo" src="${skullUrl}" alt="SugarSkull" />
