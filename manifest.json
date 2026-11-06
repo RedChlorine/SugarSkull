@@ -6,10 +6,6 @@
     "content_scripts": [
         {
             "matches": [
-                "https://www.unisa.ac.za/sites/myunisa/default/*",
-                "https://myadmin.unisa.ac.za/login-mymodules/*",
-                "https://myadmin.unisa.ac.za/session-widget/*",
-                "https://cas.unisa.ac.za/cas/login*",
                 "https://mymodules.dtls.unisa.ac.za/login/*"
             ],
             "css": [
