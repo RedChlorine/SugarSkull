@@ -1,4 +1,3 @@
-/* 1. Ground-Up Reset */
 *,
 *::before,
 *::after {
@@ -6,119 +5,297 @@
     margin: 0;
     padding: 0;
     border: 0;
-    background: transparent;
-    color: inherit;
     font: inherit;
 }
 
 :root {
-    --calavera-bg: #0d0a14;
-    --calavera-surface: #171224;
-    --calavera-border: #2e2347;
-    --calavera-marigold: #ffb703;
-    --calavera-magenta: #ff006e;
-    --calavera-teal: #00f5d4;
-    --calavera-bone: #f4f1ea;
-    --calavera-muted: #9d94b0;
+    --ss-bg-dark: #0b071a;
+    --ss-card-glass: rgba(20, 14, 42, 0.78);
+    --ss-inner-glass: rgba(14, 10, 30, 0.72);
+    --ss-cyan-border: #5bc0ff;
+    --ss-cyan-glow: rgba(91, 192, 255, 0.45);
+    --ss-marigold: #ff9f1c;
+    --ss-bone: #ffffff;
+    --ss-muted: #b8c4e0;
 }
 
-/* 2. Full-Viewport Centered Canvas */
-html,
+html {
+    width: 100%;
+    height: 100%;
+    background-color: var(--ss-bg-dark);
+}
+
 body {
+    width: 100%;
     min-height: 100vh;
-    background-color: var(--calavera-bg);
-    color: var(--calavera-bone);
+    background-color: var(--ss-bg-dark);
+    background-image: var(--ss-bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--ss-bone);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    line-height: 1.5;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 1.5rem;
 }
 
-/* Hide broken/unwanted default UNISA logos and sidebars once unstyled */
-img:not(.ss-calavera-logo),
-header,
-footer,
-nav {
-    display: none;
+/* Outer Translucent Glass Card */
+.ss-outer-card {
+    width: min(100%, 490px);
+    background: rgba(14, 10, 30, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1.5px solid rgba(130, 180, 255, 0.55);
+    border-radius: 20px;
+    padding: 1.75rem 1.75rem 1.6rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 25px rgba(91, 192, 255, 0.25);
 }
 
-/* 3. Calavera Login Card */
-form#fm1,
-.login-form,
-form[action*="login"] {
-    width: min(100% - 2rem, 400px);
-    background-color: var(--calavera-surface);
-    border: 1px solid var(--calavera-border);
-    border-top: 3px solid var(--calavera-magenta);
-    border-radius: 14px;
-    padding: 2rem;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.75), 0 0 18px rgba(255, 0, 110, 0.15);
+/* Top Header: UNIVERSITY OF SOUTH AFRICA / myUNISA */
+.ss-card-header {
+    text-align: center;
+    margin-bottom: 0.75rem;
+}
+
+.ss-uni-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #e2e8f0;
+    margin-bottom: 0.15rem;
+}
+
+.ss-myunisa-title {
+    font-size: 2.65rem;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+}
+
+.ss-my {
+    color: var(--ss-marigold);
+    font-weight: 400;
+}
+
+.ss-unisa {
+    color: var(--ss-bone);
+    font-weight: 700;
+}
+
+.ss-floral-divider {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.ss-calavera-header {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 0.4rem;
+}
+
+.ss-divider-line {
+    height: 1.5px;
+    width: 90px;
+    background: linear-gradient(90deg, transparent, var(--ss-marigold), #ff006e, transparent);
+}
+
+.ss-marigold-badge {
+    font-size: 1.5rem;
+    filter: drop-shadow(0 0 8px rgba(255, 159, 28, 0.6));
+}
+
+/* Inner Frame with Faded Calavera Skull Watermark */
+.ss-inner-frame {
+    position: relative;
+    border: 1.5px solid var(--ss-cyan-border);
+    border-radius: 14px;
+    padding: 2.2rem 2rem 1.5rem;
+    background-color: rgba(10, 7, 22, 0.25);
+    box-shadow: 0 0 18px var(--ss-cyan-glow), inset 0 0 24px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/*
+.ss-inner-frame::before {
+    content: "";
+    position: absolute;
+    inset: -10px 0 0 0;
+    background-image: var(--ss-skull-image);
+    background-size: 88%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    opacity: 0.34;
+    pointer-events: none;
+    z-index: 0;
+}*/
+
+/* Form Layout Above Skull Watermark */
+.ss-form {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.ss-error-banner {
+    background: rgba(255, 0, 85, 0.25);
+    border: 1px solid #ff4d79;
+    color: #ffd6e0;
+    padding: 0.6rem 0.9rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
     text-align: center;
 }
 
-.ss-calavera-logo {
-    width: 256px;
-    height: 256px;
-    /*filter: drop-shadow(0 0 10px rgba(255, 183, 3, 0.4));*/
+.ss-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
 }
 
-.ss-calavera-title {
-    font-size: 1.4rem;
+.ss-label {
+    font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: linear-gradient(90deg, var(--calavera-marigold), var(--calavera-magenta));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.06em;
+    color: var(--ss-bone);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
 }
 
-/* 4. Inputs & Submit Button */
-input[type="text"],
-input[type="password"] {
+.ss-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.ss-input-icon {
+    position: absolute;
+    left: 0.9rem;
+    z-index: 2;
+    width: 18px;
+    height: 18px;
+    fill: #5ce1e6;
+    color: #5ce1e6;
+    filter: drop-shadow(0 0 5px rgba(92, 225, 230, 0.6));
+    pointer-events: none;
+}
+
+.ss-input-wrap input {
     width: 100%;
-    background-color: var(--calavera-bg);
-    border: 1px solid var(--calavera-border);
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
-    color: var(--calavera-bone);
+    background: rgba(16, 18, 38, 0.76);
+    backdrop-filter: blur(6px);
+    border: 1.5px solid var(--ss-cyan-border);
+    border-radius: 9px;
+    padding: 0.75rem 1rem 0.75rem 2.65rem;
+    color: var(--ss-bone);
+    font-size: 0.95rem;
+    box-shadow: 0 0 12px rgba(91, 192, 255, 0.2);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
-    border-color: var(--calavera-teal);
-    box-shadow: 0 0 0 3px rgba(0, 245, 212, 0.2);
-    outline: none;
+.ss-input-wrap input::placeholder {
+    color: rgba(226, 232, 240, 0.65);
 }
 
-input[type="submit"],
-button[type="submit"] {
+.ss-input-wrap input:focus {
+    outline: none;
+    border-color: #72efdd;
+    box-shadow: 0 0 16px rgba(114, 239, 221, 0.55);
+}
+
+/* Orange-Red Gradient LOGIN Button */
+.ss-login-btn {
+    margin-top: 0.35rem;
     width: 100%;
-    background: linear-gradient(135deg, var(--calavera-magenta), #b5179e);
-    border: 1px solid var(--calavera-marigold);
-    border-radius: 8px;
-    padding: 0.75rem 1.25rem;
-    font-weight: 600;
-    text-align: center;
+    background: linear-gradient(90deg, #ff5400 0%, #ff0055 50%, #ff5400 100%);
+    border: 1.5px solid var(--ss-marigold);
+    border-radius: 10px;
+    padding: 0.8rem 1.25rem;
+    color: var(--ss-bone);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255, 0, 85, 0.45);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-input[type="submit"]:hover,
-button[type="submit"]:hover {
+.ss-login-btn:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(255, 183, 3, 0.35);
+    box-shadow: 0 8px 25px rgba(255, 159, 28, 0.65);
+}
+
+/* Bottom Links */
+.ss-footer-links {
+    margin-top: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    font-size: 0.8rem;
+}
+
+.ss-footer-links a {
+    color: #e2e8f0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.15s ease;
+}
+
+.ss-footer-links a:hover {
+    color: var(--ss-marigold);
+}
+
+.ss-flourish {
+    color: var(--ss-marigold);
+    font-size: 0.75rem;
+    letter-spacing: -1px;
+}
+
+/* SSO Mode Layout (mymodules.dtls.unisa.ac.za) */
+.ss-inner-frame.ss-sso-mode {
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-top: 11rem;
+}
+
+/*.ss-inner-frame.ss-sso-mode::before {
+    background-size: 72%;
+    background-position: center 12px;
+    opacity: 0.55;
+}*/
+
+.ss-sso-container {
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+}
+
+.ss-sso-Caption {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #e2e8f0;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
+}
+
+.ss-sso-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
+}
+
+.ss-ms-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    background: rgba(11, 7, 26, 0.75);
+    padding: 3px;
+    border-radius: 4px;
 }
